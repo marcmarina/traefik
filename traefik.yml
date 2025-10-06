@@ -1,0 +1,36 @@
+# API and Dashboard
+api:
+  dashboard: true
+  insecure: true
+
+# Entry Points
+entryPoints:
+  web:
+    address: ":80"
+    # Optional: Global HTTP to HTTPS redirect
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+  
+  websecure:
+    address: ":443"
+
+# Docker Provider
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+    network: traefik
+
+# Certificate Resolvers
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      email: marc.marina.miravitlles@gmail.com
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: web
+
+accessLog: {}
