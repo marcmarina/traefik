@@ -23,6 +23,7 @@ providers:
     endpoint: "unix:///var/run/docker.sock"
     exposedByDefault: false
     network: traefik
+    swarmMode: true
 
 # Certificate Resolvers
 certificatesResolvers:
