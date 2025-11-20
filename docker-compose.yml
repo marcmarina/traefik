@@ -4,7 +4,7 @@ networks:
 
 services:
   server:
-    image: traefik:v2.10
+    image: traefik:v3.6.1
     ports:
       - "80:80"
       - "443:443"

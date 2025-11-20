@@ -3,6 +3,9 @@ api:
   dashboard: true
   insecure: false
 
+log:
+  level: WARN
+
 # Entry Points
 entryPoints:
   web:
@@ -19,11 +22,10 @@ entryPoints:
 
 # Docker Provider
 providers:
-  docker:
+  swarm:
     endpoint: "unix:///var/run/docker.sock"
-    exposedByDefault: false
+    exposedByDefault: true
     network: traefik
-    swarmMode: true
 
 # Certificate Resolvers
 certificatesResolvers:
